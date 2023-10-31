@@ -9,11 +9,8 @@ galleryItems.forEach((element, index) => {
 
 console.log(galleryItems);
 
-const containerGallery = document.getElementsByClassName('gallery');
-const list = createMarkup(galleryItems);
-containerGallery.insertAdjacentHTML('beforeend', list);
-console.log(containerGallery);
-
+const containerGallery = document.querySelector('.gallery');
+containerGallery.insertAdjacentHTML('afterbegin', createMarkup(galleryItems));
 
 function createMarkup(arr) {
      return arr.map(({id, preview, description, original }) =>
