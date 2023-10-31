@@ -9,8 +9,10 @@ const formData = {};
 
 getFormValue();
 
-refs.form.addEventListener('input', throttle(saveInput, 500));
-window.onload = loadInput();
+refs.email.addEventListener('input', throttle(saveInput, 500));
+refs.message.addEventListener('input', throttle(saveInput, 500))
+refs.form.addEventListener('submit', loadInput);
+// window.onload = loadInput();
 
 function saveInput(event) {
     formData[event.target.name] = event.target.value;
@@ -20,8 +22,8 @@ function saveInput(event) {
 function loadInput(event) {
 //    event.preventDefault();
     if (refs.email.value !== '' || refs.message.value !== '') {
-        console.log(`${refs.email.value}`);
-        console.log(`${refs.message.value}`);
+        console.log(`Email: ${refs.email.value}`);
+        console.log(`Message: ${refs.message.value}`);
 //       event.currentTarget.reset();
         localStorage.removeItem('feedback-form-state')
     }
